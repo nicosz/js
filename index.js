@@ -136,7 +136,6 @@ function renderizado(producto) {
                         <p class="card-text">$${producto.precio}</p>
                     </div>
                 </div>
-                <button id="btnmain" onclick=${carritos(producto)}>Agregar</button>
         </div>
     </div>`
     document.getElementById("contenedor-productos").append(tarjeta)    
