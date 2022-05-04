@@ -96,10 +96,37 @@ let productos = [{
     },
     {
         nombre: "anana",
-        precio: 900000,
+        precio: 400,
         img: "https://walmarthn.vtexassets.com/arquivos/ids/171881/Manzana-Roja-Infantil-4-Unidades-Por-Lb-Aproximadamente-1-30.jpg?v=637666370378830000"
     }
 ]
+
+function renderizado(producto) {
+    let tarjeta = document.createElement("div")
+    tarjeta.className = "contenedor-tarjeta"
+    tarjeta.innerHTML =
+        `<div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+              <div class="col-md-4">
+                    <img src=${producto.img} class="img-fluid img-js rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                        <p class="card-text">$${producto.precio}</p>
+                    </div>
+                </div>
+        </div>
+    </div>`
+    document.getElementById("contenedor-productos").append(tarjeta)
+}
+productos.forEach(element => {
+    renderizado(element)
+})
+let buton1 = document.getElementById("btnprimary")
+buton1.onclick = () => {console.log("click")}
+
+
 class Carrito {
     constructor(items) {
         this.items = JSON.parse(localStorage.getItem("carrito")) || []
@@ -118,38 +145,8 @@ class Carrito {
         return this.items.length
     }
 }
-console.log(JSON.parse(localStorage.getItem("carrito")))
-
 const carrito1 = new Carrito()
-function renderizado(producto) {
-    let tarjeta = document.createElement("div")
-    tarjeta.className = "contenedor-tarjeta"
-    tarjeta.innerHTML =
-        `<div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-              <div class="col-md-4">
-                    <img src=${producto.img} class="img-fluid img-js rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">$${producto.precio}</p>
-                    </div>
-                </div>
-        </div>
-    </div>`
-    document.getElementById("contenedor-productos").append(tarjeta)    
-}
-function carritos (producto){
-    carrito1.agregar (producto)
-}
-
-productos.forEach(element => {
-    renderizado(element)
-    
-})
-
-
+console.log(JSON.parse(localStorage.getItem("carrito")))
 
 //  let objeto = new Carrito (productos)
 //  const producto1 ={  
