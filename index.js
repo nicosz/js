@@ -1,3 +1,4 @@
+import{carrito1} from"./carrito.js"
 
 function precio(a) {
     switch (a) {
@@ -12,26 +13,7 @@ function precio(a) {
             break;
     }
 }
-class Carrito {
-    constructor(items) {
-        this.items = JSON.parse(localStorage.getItem("carrito")) || []
-    }
-    agregar(objeto) {
-        this.items.push(objeto)
-        localStorage.setItem("carrito", JSON.stringify(this.items))
-    }
-    sacar(objeto) {
-        let producto = this.items.find(element => element.name === objeto.name)
-        let posicion = this.items.indexOf(producto)
-        this.items.splice(posicion, 1)
-        localStorage.setItem("carrito", JSON.stringify(this.items))
-    }
-    listar() {
-        return this.items.length
-    }
-}
 
-const carrito1 = new Carrito()
 
 let productos = [{
         nombre: "Manzana",
