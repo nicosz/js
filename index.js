@@ -1,4 +1,6 @@
-import{carrito1} from"./carrito.js"
+import {
+    carrito1
+} from "./carrito.js"
 
 function precio(a) {
     switch (a) {
@@ -24,25 +26,25 @@ let productos = [{
     {
         nombre: "Banana",
         precio: 90,
-        img: "https://walmarthn.vtexassets.com/arquivos/ids/171881/Manzana-Roja-Infantil-4-Unidades-Por-Lb-Aproximadamente-1-30.jpg?v=637666370378830000",
+        img: "https://st.depositphotos.com/1642482/1904/i/450/depositphotos_19049353-stock-photo-fruit.jpg",
         id: "2"
     },
     {
         nombre: "Naranja",
         precio: 231,
-        img: "https://walmarthn.vtexassets.com/arquivos/ids/171881/Manzana-Roja-Infantil-4-Unidades-Por-Lb-Aproximadamente-1-30.jpg?v=637666370378830000",
+        img: "https://fraganciastudeseo.es/wp-content/uploads/2018/05/Naranja-600x600.jpg",
         id: "3"
     },
     {
         nombre: "Pera",
         precio: 20,
-        img: "https://walmarthn.vtexassets.com/arquivos/ids/171881/Manzana-Roja-Infantil-4-Unidades-Por-Lb-Aproximadamente-1-30.jpg?v=637666370378830000",
+        img: "https://laopinion.com/wp-content/uploads/sites/3/2015/10/pera.jpg?quality=60&strip=all&w=1196",
         id: "4"
     },
     {
         nombre: "anana",
         precio: 400,
-        img: "https://walmarthn.vtexassets.com/arquivos/ids/171881/Manzana-Roja-Infantil-4-Unidades-Por-Lb-Aproximadamente-1-30.jpg?v=637666370378830000",
+        img: "https://granjaus.com/wp-content/uploads/2019/02/AA113.jpg",
         id: "5"
     }
 ]
@@ -58,9 +60,9 @@ function renderizado(producto) {
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">$${producto.precio}</p>
-                        <button id="${producto.id}">Agregar al Carrito</button>
+                      <h5 class="card-title">${producto.nombre}</h5>
+                      <p class="card-text">$${producto.precio}</p>
+                      <button id="${producto.id}">Agregar al Carrito</button>
                     </div>
                 </div>
         </div>
@@ -71,9 +73,10 @@ for (const element of productos) {
     renderizado(element)
     listenerBoton(element)
 }
-function listenerBoton(element){
+
+function listenerBoton(element) {
     let button = document.getElementById(element.id)
-    button.addEventListener("click",() => {
+    button.addEventListener("click", () => {
         carrito1.agregar(element)
         console.log(carrito1);
     })

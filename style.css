@@ -1,8 +1,4 @@
-.img-js{
-    height: 300px;
-    width: 300px;
-    
-}
+
 #contenedor-productos{
     display: flex;
     justify-content: space-between;
