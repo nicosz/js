@@ -3,18 +3,38 @@ class Carrito {
         this.items = JSON.parse(localStorage.getItem("carrito")) || []
     }
     agregar(objeto) {
-        this.items.push(objeto)
+        let producto = this.items.find(element =>  element.objeto.nombre === objeto.nombre)
+       
+        if (producto) {
+            producto.cantidad++
+        } else {
+            this.items.push({
+                objeto,
+                cantidad: 1
+            })
+        }
         localStorage.setItem("carrito", JSON.stringify(this.items))
     }
     sacar(objeto) {
-        let producto = this.items.find(element => element.name === objeto.name)
+        let producto = this.items.find(element => element.objeto.nombre === objeto.nombre)
         let posicion = this.items.indexOf(producto)
-        this.items.splice(posicion, 1)
+        if (producto.cantidad > 1) {
+            producto.cantidad--
+        } else {
+            this.items.splice(posicion, 1)
+        }
         localStorage.setItem("carrito", JSON.stringify(this.items))
+
     }
     listar() {
-        return this.items.length
+        let contador = 0
+        for (const element of this.items) {
+            contador+= element.cantidad
+            
+        }
+        return contador 
     }
 }
+
 
 export const carrito1 = new Carrito()

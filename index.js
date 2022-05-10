@@ -2,21 +2,6 @@ import {
     carrito1
 } from "./carrito.js"
 
-function precio(a) {
-    switch (a) {
-        case 1:
-            alert("el precio es de $100")
-            break;
-        case 2:
-            alert("el precio es de $200")
-            break;
-        case 3:
-            alert("el precio es de $300")
-            break;
-    }
-}
-
-
 let productos = [{
         nombre: "Manzana",
         precio: 200,
@@ -42,7 +27,7 @@ let productos = [{
         id: "4"
     },
     {
-        nombre: "anana",
+        nombre: "Anana",
         precio: 400,
         img: "https://granjaus.com/wp-content/uploads/2019/02/AA113.jpg",
         id: "5"
@@ -62,7 +47,8 @@ function renderizado(producto) {
                     <div class="card-body">
                       <h5 class="card-title">${producto.nombre}</h5>
                       <p class="card-text">$${producto.precio}</p>
-                      <button id="${producto.id}">Agregar al Carrito</button>
+                      <button class="btn btn-outline-success" id="${producto.id}">Agregar al Carrito</button>
+                      <button class="btn btn-outline-success" id="sacar-${producto.id}">Sacar</button>
                     </div>
                 </div>
         </div>
@@ -72,6 +58,7 @@ function renderizado(producto) {
 for (const element of productos) {
     renderizado(element)
     listenerBoton(element)
+    listenerSacar(element)
 }
 
 function listenerBoton(element) {
@@ -79,5 +66,11 @@ function listenerBoton(element) {
     button.addEventListener("click", () => {
         carrito1.agregar(element)
         console.log(carrito1);
+    })
+}
+function listenerSacar(element) {
+    let button = document.getElementById(`sacar-${element.id}`)
+    button.addEventListener("click", () => {
+        carrito1.sacar(element)
     })
 }
