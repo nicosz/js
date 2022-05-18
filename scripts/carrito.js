@@ -3,8 +3,8 @@ class Carrito {
         this.items = JSON.parse(localStorage.getItem("carrito")) || []
     }
     agregar(objeto) {
-        let producto = this.items.find(element =>  element.objeto.nombre === objeto.nombre)
-       
+        let producto = this.items.find(element => element.objeto.nombre === objeto.nombre)
+
         if (producto) {
             producto.cantidad++
         } else {
@@ -24,17 +24,16 @@ class Carrito {
             this.items.splice(posicion, 1)
         }
         localStorage.setItem("carrito", JSON.stringify(this.items))
-
+  
     }
     listar() {
         let contador = 0
         for (const element of this.items) {
-            contador+= element.cantidad
-            
+            contador += element.cantidad
+
         }
-        return contador 
+        return contador
     }
 }
-
 
 export const carrito1 = new Carrito()

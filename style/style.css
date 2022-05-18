@@ -1,0 +1,21 @@
+.icono-carrito {
+    margin-right: 20px;
+}
+
+.icono::before {
+    font-size: 27px;
+}
+
+.card-colors{
+    background-color: #212529;
+}
+
+.tabla-cart {
+    width: 50%;
+    margin-left: 500px;
+}
+
+#contenedor-productos {
+    display: flex;
+    justify-content: space-between;
+}
