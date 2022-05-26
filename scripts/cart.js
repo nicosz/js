@@ -5,33 +5,32 @@ import {
 function renderizadoTabla(item) {
     let tr = document.createElement("tr")
     tr.innerHTML = `
-    <td>${item.objeto.nombre}</td>
+    <td>${item.object.name}</td>
     <td>
-    <button id="sacar-${item.objeto.id}">-</button>
-    ${item.cantidad} 
-    <button id="agregar-${item.objeto.id}">+</button>
+    <button id="sacar-${item.object.id}">-</button>
+    ${item.quantity} 
+    <button id="agregar-${item.object.id}">+</button>
     </td>
-    <td>${item.objeto.precio*item.cantidad}</td>`
+    <td>${item.object.price*item.quantity}</td>`
     document.getElementById("tabla-cart").append(tr)
 }
 
 for (const element of carrito1.items) {
     renderizadoTabla(element)
     listenerBoton(element)
-    listenerSacar(element)
 }
 
 function listenerBoton(element) {
-    let button = document.getElementById(`agregar-${element.objeto.id}`)
+    let button = document.getElementById(`agregar-${element.object.id}`)
     button.addEventListener("click", () => {
-        carrito1.agregar(element.objeto)
-
+        carrito1.add(element.object)
     })
 }
+list() {
+    let contador = 0
+    for (const element of this.items) {
+        contador += element.quantity
 
-function listenerSacar(element) {
-    let button = document.getElementById(`sacar-${element.objeto.id}`)
-    button.addEventListener("click", () => {
-        carrito1.sacar(element.objeto)
-    })
+    }
+    return contador
 }

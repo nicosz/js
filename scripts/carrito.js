@@ -2,34 +2,34 @@ class Carrito {
     constructor(items) {
         this.items = JSON.parse(localStorage.getItem("carrito")) || []
     }
-    agregar(objeto) {
-        let producto = this.items.find(element => element.objeto.nombre === objeto.nombre)
+    add(object) {
+        let product = this.items.find(element => element.object.name === object.name)
 
-        if (producto) {
-            producto.cantidad++
+        if (product) {
+            product.quantity++
         } else {
             this.items.push({
-                objeto,
-                cantidad: 1
+                object,
+                quantity: 1
             })
         }
         localStorage.setItem("carrito", JSON.stringify(this.items))
     }
-    sacar(objeto) {
-        let producto = this.items.find(element => element.objeto.nombre === objeto.nombre)
-        let posicion = this.items.indexOf(producto)
-        if (producto.cantidad > 1) {
-            producto.cantidad--
+    remove(object) {
+        let product = this.items.find(element => element.object.name === object.name)
+        let posicion = this.items.indexOf(product)
+        if (product.quantity > 1) {
+            product.quantity--
         } else {
             this.items.splice(posicion, 1)
         }
         localStorage.setItem("carrito", JSON.stringify(this.items))
   
     }
-    listar() {
+    list() {
         let contador = 0
         for (const element of this.items) {
-            contador += element.cantidad
+            contador += element.quantity
 
         }
         return contador
