@@ -18,6 +18,7 @@ function renderizadoTabla(item) {
 for (const element of carrito1.items) {
     renderizadoTabla(element)
     listenerBoton(element)
+    
 }
 
 function listenerBoton(element) {
@@ -26,11 +27,8 @@ function listenerBoton(element) {
         carrito1.add(element.object)
     })
 }
-list() {
-    let contador = 0
-    for (const element of this.items) {
-        contador += element.quantity
-
-    }
-    return contador
+function iconoCarrito (){
+    let p=document.getElementById("numero-carrito")
+    p.innerHTML= carrito1.list()
 }
+iconoCarrito() 

@@ -4,7 +4,6 @@ class Carrito {
     }
     add(object) {
         let product = this.items.find(element => element.object.name === object.name)
-
         if (product) {
             product.quantity++
         } else {
@@ -30,7 +29,6 @@ class Carrito {
         let contador = 0
         for (const element of this.items) {
             contador += element.quantity
-
         }
         return contador
     }

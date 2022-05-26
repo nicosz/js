@@ -73,8 +73,15 @@ function listenerButton(element) {
                 color: "#19794e"
             },
           }).showToast();
+          iconoCarrito() 
     })
     
     
 }
+
+function iconoCarrito (){
+    let p=document.getElementById("numero-carrito")
+    p.innerHTML= carrito1.list()
+}
+iconoCarrito() 
 
