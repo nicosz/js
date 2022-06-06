@@ -17,18 +17,28 @@ function renderizadoTabla(item) {
 
 for (const element of carrito1.items) {
     renderizadoTabla(element)
-    listenerBoton(element)
-    
+    listenAdd(element)
+    listenRemove(element)
 }
 
-function listenerBoton(element) {
+function listenAdd(element) {
     let button = document.getElementById(`agregar-${element.object.id}`)
     button.addEventListener("click", () => {
         carrito1.add(element.object)
     })
 }
-function iconoCarrito (){
-    let p=document.getElementById("numero-carrito")
-    p.innerHTML= carrito1.list()
+
+function listenRemove(element) {
+    let button = document.getElementById(`sacar-${element.object.id}`)
+    button.addEventListener("click", () => {
+        carrito1.remove(element.object)
+
+    })
 }
-iconoCarrito() 
+
+
+function iconoCarrito() {
+    let p = document.getElementById("numero-carrito")
+    p.innerHTML = carrito1.list()
+}
+iconoCarrito()
