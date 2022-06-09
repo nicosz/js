@@ -2,7 +2,7 @@ import {
     carrito1
 } from "./carrito.js"
 
-function renderizadoTabla(item) {
+function renderingtable(item) {
     let tr = document.createElement("tr")
     tr.innerHTML = `
     <td>${item.object.name}</td>
@@ -16,29 +16,44 @@ function renderizadoTabla(item) {
 }
 
 for (const element of carrito1.items) {
-    renderizadoTabla(element)
-    listenAdd(element)
-    listenRemove(element)
+    renderingtable(element)
+    listAdd(element)
+    listRemove(element)
+    listcarrito(element)
+
 }
 
-function listenAdd(element) {
+function listAdd(element) {
     let button = document.getElementById(`agregar-${element.object.id}`)
     button.addEventListener("click", () => {
         carrito1.add(element.object)
+        renderingtable(element)
+
     })
 }
 
-function listenRemove(element) {
+function listRemove(element) {
     let button = document.getElementById(`sacar-${element.object.id}`)
     button.addEventListener("click", () => {
         carrito1.remove(element.object)
-
+        renderingtable(element)
     })
 }
 
-
-function iconoCarrito() {
+function listcarrito() {
     let p = document.getElementById("numero-carrito")
     p.innerHTML = carrito1.list()
 }
-iconoCarrito()
+
+let comprar = document.getElementById("finalizar-compra")
+comprar.onclick = () => {
+    if (carrito1.items.length !== 0) {
+        alert("Compra finalizada!")
+        localStorage.clear()
+        let tbody = document.getElementById('tbody')
+        tbody.innerHTML = ""
+        location.reload()
+    } else {
+        alert("Agregá productos en la tienda")
+    }
+}

@@ -50,13 +50,12 @@ function listenerButton(element) {
             gravity: "top",
             position: "right",
             style: {
-                background: "#212529",
+                background: "#080808",
                 color: "#19794e"
             },
         }).showToast();
         iconoCarrito()
     })
-
 
 }
 

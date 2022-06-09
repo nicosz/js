@@ -1,16 +1,30 @@
 .icono-carrito {
     margin-right: 20px;
+    margin-top: 1rem;
+}
+.logo{
+height: 50px;
+
+}
+#numero-carrito {
+    position: absolute;
+    border-radius: 1rem;
+    background-color: #0b8a4f;
+    color: #ffffff;
+    margin-left: 23px;
+    bottom: 15px;
+    font-size: 15px;
 }
 
 .icono::before {
     font-size: 27px;
 }
 
-.card-colors{
-    background-color: #212529;
+.card-colors {
+    background-color: #080808;
 }
 
-.tabla-cart {
+#tbody {
     width: 50%;
     margin-left: 500px;
 }
@@ -18,4 +32,38 @@
 #contenedor-productos {
     display: flex;
     justify-content: space-between;
+}
+
+nav
+{
+    background-color: #080808;
+}
+footer {
+    background-color: #080808;
+}
+
+.redes-sociales {
+    padding-bottom: 3.5rem;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 650px;
+}
+
+.text-redes {
+    margin-left: 25px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 0.5rem;
+    padding-left: 0;
+    color: aliceblue;
+}
+
+li {
+    margin: 10px;
+    font-size: 25px;
 }
